@@ -4,6 +4,8 @@ Etapa_1_Reconocimiento de nuestro entorno y Armado de equipos con SCV
 ---
 Rama de Jose gregorio
 
+![Mi foto](img_comida/Foto_Perfil.jpg)
+
 Jose Gregorio Barraza Contreras 
 
 **ubicacion:** corozal "Sucre"-colombia

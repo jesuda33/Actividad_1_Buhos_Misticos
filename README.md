@@ -6,7 +6,7 @@ Rama de Jose gregorio
 
 Jose Gregorio Barraza Contreras 
 
-**ubicacion:** corozal-colombia
+**ubicacion:** corozal "Sucre"-colombia
 
 **Rol:** "narrative designer"
 

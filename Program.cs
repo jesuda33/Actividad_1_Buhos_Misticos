@@ -11,8 +11,9 @@ namespace Actividad_JoseBarraza
         static void Main(string[] args)
         {
             Console.WriteLine("Hola a todos");
-            Console.WriteLine("Mi nombre es jose grgeoio y pertenezo al curso: Programación para Videojuegos ");
-            Console.WriteLine("escogiendo el rol: ");
+            Console.WriteLine("Mi nombre es jose grgeoio y pertenezo al curso: Programación para Videojuegos");
+            Console.WriteLine("escogiendo el rol: narrative designer");
+
             Console.ReadLine();
         }
     }

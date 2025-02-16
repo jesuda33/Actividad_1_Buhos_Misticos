@@ -4,7 +4,7 @@ Etapa_1_Reconocimiento de nuestro entorno y Armado de equipos con SCV
 ---
 Rama de Jose gregorio
 
-<img src="https://github.com/tu-usuario.png" width="150">
+<img src="https://github.com/Barraz98128.png" width="150">
 
 Jose Gregorio Barraza Contreras 
 

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/3d_plataform_mario.unity
+- path: Assets/Scenes/MainMenuScence.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

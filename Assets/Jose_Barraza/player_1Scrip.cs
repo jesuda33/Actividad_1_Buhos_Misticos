@@ -10,7 +10,9 @@ public class player_1Scrip : MonoBehaviour
 
     public float Jumpforce = 8f;
 
+
     public bool IsGrounder;
+    private bool IsWin;
 
     //zona de reaparicion
 
@@ -20,36 +22,70 @@ public class player_1Scrip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Source = GetComponent<AudioSource>();
         Rb = GetComponent<Rigidbody>();
         
     }
+
+    //Componentes de Audio
+    public AudioSource Source;
+    public AudioClip JumpSound;
+    public AudioClip StepSound; // << Agregado para pasos
+    private float stepTimer = 0f; // << Temporizador para evitar que suene todo el tiempo
+    public float stepInterval = 0.5f; // << Tiempo entre pasos (ajustable)
 
     // Update is called once per frame
     void Update()
     {
         //MOVIMIENTO
 
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (!IsWin && !Ui.Inst.Pause)
         {
-            Speed = MaxSpeed;
+
+            float x = Input.GetAxis("Horizontal");
+            float y = Input.GetAxis("Vertical");
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Speed = MaxSpeed;
+                stepInterval = 0.3f; // << Pasos más rápidos al correr
+            }
+            else
+            {
+                Speed = MinSpeed;
+                stepInterval = 0.5f; // << Pasos normales al caminar
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+
+            }
+
+            transform.Translate(new Vector3(x, 0, y) * Time.deltaTime * Speed);
+
+            // Aquí agregas el sonido de pasos
+            if ((Mathf.Abs(x) > 0.1f || Mathf.Abs(y) > 0.1f) && IsGrounder)
+            {
+                stepTimer += Time.deltaTime;
+                if (stepTimer >= stepInterval)
+                {
+                    Source.PlayOneShot(StepSound);
+                    stepTimer = 0f;
+                }
+            }
+            else
+            {
+                stepTimer = stepInterval;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Ui.Inst.ShowPauseScreen();
+            }
 
         }
-        else
-        {
-            Speed = MinSpeed;
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-
-        }
-
-        transform.Translate(new Vector3(x, 0, y) * Time.deltaTime * Speed);
         
     }
 
@@ -58,6 +94,7 @@ public class player_1Scrip : MonoBehaviour
         if (IsGrounder)
         {
             Rb.AddForce(new Vector3(0, Jumpforce, 0), ForceMode.Impulse);
+            Source.PlayOneShot(JumpSound);
         }
         
 
@@ -76,6 +113,7 @@ public class player_1Scrip : MonoBehaviour
             transform.position = SpawnPoint.position;
 
         }
+        
 
 
     }

@@ -20,6 +20,9 @@ public class Ui : MonoBehaviour
     private bool Win;
     public bool Pause;
 
+    public int score = 0;
+    public TextMeshProUGUI scoreText; // A este le asignarás el texto en el Canvas para mostrar los puntos
+
     public Button RetryButton;
     public Button MainMenuButton;
     public Button MainMenuButtonPause;
@@ -75,6 +78,21 @@ public class Ui : MonoBehaviour
             Cursor.visible = true;
         }
     }
+
+    public void AddPoints(int points)
+    {
+        score += points;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Puntos: " + score.ToString();
+        }
+    }
+
 
     public void ShowPauseScreen()
     {

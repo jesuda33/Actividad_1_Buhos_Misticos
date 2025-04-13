@@ -56,8 +56,11 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Jose_Barraza\CoinScrip.cs" />
     <Compile Include="Assets\Jose_Barraza\Destruction.cs" />
     <Compile Include="Assets\Jose_Barraza\MainMenuSript.cs" />
+    <Compile Include="Assets\Jose_Barraza\Player_2Move.cs" />
+    <Compile Include="Assets\Jose_Barraza\Script\rotarMoneda.cs" />
     <Compile Include="Assets\Jose_Barraza\Ui.cs" />
     <Compile Include="Assets\Jose_Barraza\player_1Scrip.cs" />
   </ItemGroup>
